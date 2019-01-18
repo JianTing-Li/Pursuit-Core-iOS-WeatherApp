@@ -21,6 +21,7 @@ class WeatherAppTests: XCTestCase {
   
   func testGetLocationName() {
     let zipcode = "10023"
+    // since this is an asynchronous call, we need exp
     let exp = expectation(description: "found location name")
     ZipCodeHelper.getLocationName(from: zipcode) { (error, localityName) in
       if let error = error {
@@ -30,6 +31,7 @@ class WeatherAppTests: XCTestCase {
       }
       exp.fulfill()
     }
+    // set we allowed for the asynchronous call to complete
     wait(for: [exp], timeout: 3.0)
   }
   
