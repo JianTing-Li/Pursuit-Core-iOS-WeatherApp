@@ -7,3 +7,37 @@
 //
 
 import Foundation
+
+struct GetForecastStatus: Codable {
+    let success: Bool
+    
+    struct ForecastError: Codable {
+        let code: String
+        let description: String
+    }
+    let error: ForecastError?
+    let response: [ForecastData]    //only 1 element
+}
+
+struct ForecastData: Codable {
+    let interval: String
+    let periods: [Forecast] // <--- Goal Here!
+    
+    struct Location: Codable {
+        let tz: String
+    }
+    let profile: Location
+}
+
+struct Forecast: Codable {
+    let timestamp: Int      // 1547899200
+    let maxTempC: Int       // 4
+    let maxTempF: Int       // 39
+    let minTempC: Int       // 1
+    let minTempF: Int       // 33
+    let precipIN: Double    // 1.27
+    let windSpeedMPH: Int   // 8
+    let weather: String     // "Mostly Cloudy with Chance of Light Wintry Mix",
+    let weatherPrimary: String    // "Scattered Wintry Mix"
+    let icon: String              // "wintrymix.png"
+}

@@ -6,4 +6,11 @@
 //  Copyright © 2019 Pursuit. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class ForecastCell: UICollectionViewCell {
+    @IBOutlet weak var forecastDate: UILabel!
+    @IBOutlet weak var forecastImage: UIImageView!
+    @IBOutlet weak var highTemp: UILabel!
+    @IBOutlet weak var lowTemp: UILabel!
+}

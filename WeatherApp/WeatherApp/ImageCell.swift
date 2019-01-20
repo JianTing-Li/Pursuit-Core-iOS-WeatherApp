@@ -6,4 +6,8 @@
 //  Copyright © 2019 Pursuit. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class FavoriteImageCell: UITableViewCell {
+    @IBOutlet weak var favoriteImage: UIView!
+}
