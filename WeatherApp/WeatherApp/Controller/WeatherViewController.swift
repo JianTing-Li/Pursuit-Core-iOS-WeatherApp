@@ -10,11 +10,31 @@ import UIKit
 
 class WeatherViewController: UIViewController {
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
+    @IBOutlet weak var weatherCollectionView: UICollectionView!
     
-  }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        weatherCollectionView.dataSource = self
+        weatherCollectionView.delegate = self
+    }
 
 
 }
 
+extension WeatherViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = weatherCollectionView.dequeueReusableCell(withReuseIdentifier: "ForecastCell", for: indexPath) as? ForecastCell else { fatalError("ForecastCell or identifier not found") }
+        return cell
+    }
+}
+
+extension WeatherViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 250, height: 350)
+    }
+}

@@ -124,6 +124,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="sm6-ub-ePL"/>
+                    <connections>
+                        <outlet property="weatherCollectionView" destination="1TM-vi-vx1" id="8sf-oe-JFI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

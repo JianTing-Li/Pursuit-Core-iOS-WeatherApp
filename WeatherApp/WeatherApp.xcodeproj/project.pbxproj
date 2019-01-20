@@ -22,7 +22,8 @@
 		D60400DE21F450DF0002A04C /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400DD21F450DF0002A04C /* WeatherDetailViewController.swift */; };
 		D60400E021F450F90002A04C /* FavoriteImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400DF21F450F90002A04C /* FavoriteImageViewController.swift */; };
 		D60400E221F4510C0002A04C /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400E121F4510C0002A04C /* ForecastCell.swift */; };
-		D60400E421F452A30002A04C /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400E321F452A30002A04C /* ImageCell.swift */; };
+		D60400E421F452A30002A04C /* FavoriteImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400E321F452A30002A04C /* FavoriteImageCell.swift */; };
+		D60400E621F4FD010002A04C /* CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400E521F4FD010002A04C /* CellIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,8 @@
 		D60400DD21F450DF0002A04C /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
 		D60400DF21F450F90002A04C /* FavoriteImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImageViewController.swift; sourceTree = "<group>"; };
 		D60400E121F4510C0002A04C /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
-		D60400E321F452A30002A04C /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		D60400E321F452A30002A04C /* FavoriteImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImageCell.swift; sourceTree = "<group>"; };
+		D60400E521F4FD010002A04C /* CellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				D60400E121F4510C0002A04C /* ForecastCell.swift */,
-				D60400E321F452A30002A04C /* ImageCell.swift */,
+				D60400E321F452A30002A04C /* FavoriteImageCell.swift */,
+				D60400E521F4FD010002A04C /* CellIdentifier.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -272,8 +275,9 @@
 				D60400E221F4510C0002A04C /* ForecastCell.swift in Sources */,
 				D60400D021F3ECB60002A04C /* NetworkHelper.swift in Sources */,
 				D60400DC21F450B70002A04C /* Image.swift in Sources */,
-				D60400E421F452A30002A04C /* ImageCell.swift in Sources */,
+				D60400E421F452A30002A04C /* FavoriteImageCell.swift in Sources */,
 				D60400D221F3ECC40002A04C /* ImageHelper.swift in Sources */,
+				D60400E621F4FD010002A04C /* CellIdentifier.swift in Sources */,
 				D60400DA21F44FF60002A04C /* Forecast.swift in Sources */,
 				D60400D421F3ECD20002A04C /* AppError.swift in Sources */,
 				57EE00A021F15E0F00D76A6E /* ZipCodeHelper.swift in Sources */,
