@@ -9,7 +9,7 @@
 import Foundation
 
 struct SecretKeys {
-    static let aerisSecretKey = ""
+    static let aerisSecretKey = "1234"
     static let aerisClientID = ""
     static let pixabaySecretKey = ""
 }
