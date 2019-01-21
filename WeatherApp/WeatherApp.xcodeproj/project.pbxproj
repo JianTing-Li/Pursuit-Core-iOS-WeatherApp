@@ -29,6 +29,7 @@
 		D60400EC21F506900002A04C /* PixabayAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400EB21F506900002A04C /* PixabayAPIClient.swift */; };
 		D60400EF21F59A2E0002A04C /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400EE21F59A2E0002A04C /* DataPersistenceManager.swift */; };
 		D60400F121F59A9E0002A04C /* FavoriteImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400F021F59A9E0002A04C /* FavoriteImageModel.swift */; };
+		D60400F321F5A0360002A04C /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400F221F5A0360002A04C /* SecretKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		D60400EB21F506900002A04C /* PixabayAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayAPIClient.swift; sourceTree = "<group>"; };
 		D60400EE21F59A2E0002A04C /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		D60400F021F59A9E0002A04C /* FavoriteImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImageModel.swift; sourceTree = "<group>"; };
+		D60400F221F5A0360002A04C /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				D60400E721F5053D0002A04C /* AerisWeatherAPIClient.swift */,
 				D60400EB21F506900002A04C /* PixabayAPIClient.swift */,
 				57EE009F21F15E0F00D76A6E /* ZipCodeHelper.swift */,
+				D60400F221F5A0360002A04C /* SecretKeys.swift */,
 				D60400D321F3ECD20002A04C /* AppError.swift */,
 			);
 			path = NetworkServices;
@@ -310,6 +313,7 @@
 				D60400D421F3ECD20002A04C /* AppError.swift in Sources */,
 				57EE00A021F15E0F00D76A6E /* ZipCodeHelper.swift in Sources */,
 				57EE009021F15D7000D76A6E /* WeatherViewController.swift in Sources */,
+				D60400F321F5A0360002A04C /* SecretKeys.swift in Sources */,
 				57EE008E21F15D7000D76A6E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
