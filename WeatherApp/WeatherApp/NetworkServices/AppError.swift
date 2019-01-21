@@ -15,7 +15,7 @@ public enum AppError: Error {
     case decodingError(Error)
     case encodingError(Error)
     case badStatusCode(String)
-    case badMimetype(String)
+    case badMimeType(String)
     
     public func errorMessage() -> String {
         switch self {
@@ -31,7 +31,7 @@ public enum AppError: Error {
             return "property list encoding error: \(error)"
         case .badStatusCode(let message):
             return "bad status code: \(message)"
-        case .badMimetype(let mimeType):            //what is the .badMimetype error?
+        case .badMimeType(let mimeType):            //what is the .badMimetype error?
             return "bad mime type: \(mimeType)"
         }
     }

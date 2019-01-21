@@ -10,4 +10,6 @@ import Foundation
 
 final class AerisWeatherAPIClient {
     private init() {}
+    
+    
 }

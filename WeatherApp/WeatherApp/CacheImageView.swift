@@ -8,6 +8,7 @@
 
 import UIKit
 // 2 questions
+//TODO: refactor set image using networkHelper
 
 class CacheImageView: UIImageView {
     
@@ -24,7 +25,7 @@ class CacheImageView: UIImageView {
         return indicator
     }()
     
-    // 1) what does the next 3 things do?
+    // ??? 1) what does the next 3 things do?
         // display the activity indicator
     private func commonInit() {
         addSubview(activityIndicator)
@@ -42,50 +43,51 @@ class CacheImageView: UIImageView {
         commonInit()
     }
     
-    // 2) what is the "throws" keyboard?
+    // ??? 2) what is the "throws" keyboard?
     public func setImage(withURLString urlString: String, placeholderImage: UIImage) throws {
-        
+        //set image to placeholder
+        image = placeholderImage
+        //check if the image of the url is in the cache
+        if let cacheImage = cache.object(forKey: urlString as NSString) {
+            image = cacheImage
+        } else { // if not make a network request
+            imageViewURLString = urlString
+            activityIndicator.startAnimating()  //start animating activity indicator
+            
+            guard let url = URL(string: urlString) else { throw AppError.badURL("bad image url: \(urlString)") }
+            let request = URLRequest(url:url)
+            
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print("network error: \(error)")
+                }
+                guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                    print("setImage - bad status code")
+                    return
+                }
+                if let data = data {
+                    //make sure the URLString on the Image is equal to the image URLString we make a network request to
+                    if self.imageViewURLString == urlString {
+                          // ??? 3) what is global thread? THis whole line of code
+                                //image processing in the global thread
+                        DispatchQueue.global(qos: .userInitiated).async {
+                            if let fetchedImage = UIImage(data: data) {
+                                // cache the image
+                                self.cache.setObject(fetchedImage, forKey: urlString as NSString)
+                                DispatchQueue.main.async {
+                                    self.image = fetchedImage
+                                }
+                            }
+                        }
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.activityIndicator.startAnimating()
+                }
+            }
+            task.resume()
+        }
     }
     
-//    public func setImage(withURLStirng urlString: String, placeholderImage: UIImage) throws {
-//        image = placeholderImage
-//        if let cacheImage = cache.object(forKey: urlString as NSString) {
-//            image = cacheImage
-//        } else {
-//            imageViewURLString = urlString
-//            activityIndicator.startAnimating()
-//            guard let url = URL(string: urlString) else {
-//                throw AppError.badURL("bad image url: \(urlString)")
-//            }
-//            let request = URLRequest(url: url)
-//            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-//                if let error = error {
-//                    print("network error: \(error)")
-//                }
-//                guard let httpResponse = response as? HTTPURLResponse,
-//                    (200...299).contains(httpResponse.statusCode) else {
-//                        print("setImage - bad status code")
-//                        return
-//                }
-//                if let data = data {
-//                    if self.imageViewURLString == urlString {
-//                        DispatchQueue.global(qos: .userInitiated).async {
-//                            if let fetchedImage = UIImage(data: data) {
-//                                self.cache.setObject(fetchedImage, forKey: urlString as NSString)
-//                                DispatchQueue.main.async {
-//                                    self.image = fetchedImage
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//
-//                DispatchQueue.main.async {
-//                    self.activityIndicator.stopAnimating()
-//                }
-//            }
-//            task.resume()
-//        }
-//    }
     
 }

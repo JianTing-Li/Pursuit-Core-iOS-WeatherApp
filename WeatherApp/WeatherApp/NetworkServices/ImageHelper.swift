@@ -12,12 +12,15 @@ public final class ImageHelper {
     // Singleton instance to have only one instance in the app of the imageCache
     private init() {
         imageCache = NSCache<NSString, UIImage>()
-        imageCache.countLimit = 100 // number of objects
-        imageCache.totalCostLimit = 10 * 1024 * 1024 // max 10MB used
+        imageCache.countLimit = 100  // number of objects
+        imageCache.totalCostLimit = 10 * 1024 * 1024  // max 10MB used
     }
-    public static let shared = ImageHelper()
     
+    public static let shared = ImageHelper()
     private var imageCache: NSCache<NSString, UIImage>
+    public func image(forKey key: NSString) -> UIImage? {
+        return imageCache.object(forKey: key)
+    }
     
     public func fetchImage(urlString: String, completionHandler: @escaping (AppError?, UIImage?) -> Void) {
         NetworkHelper.shared.performDataTask(endpointURLString: urlString) { (error, data, response) in
@@ -29,7 +32,7 @@ public final class ImageHelper {
                 // response.allHeaderFields dictionary contains useful header information such as Content-Type, Content-Length
                 // response also has the mimeType, such as image/jpeg, text/html, image/png
                 let mimeType = response.mimeType ?? "no mimeType found"
-                var isValidImage = false
+                var isValidImage = false    //default false
                 switch mimeType {
                 case "image/jpeg":
                     isValidImage = true
@@ -54,7 +57,5 @@ public final class ImageHelper {
         }
     }
     
-    public func image(forKey key: NSString) -> UIImage? {
-        return imageCache.object(forKey: key)
-    }
+
 }

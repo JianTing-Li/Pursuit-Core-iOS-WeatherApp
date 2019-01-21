@@ -10,4 +10,6 @@ import Foundation
 
 final class PixabayAPIClient {
     private init() {}
+    
+    
 }
