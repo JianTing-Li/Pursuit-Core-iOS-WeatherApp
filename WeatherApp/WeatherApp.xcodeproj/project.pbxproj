@@ -30,6 +30,7 @@
 		D60400EF21F59A2E0002A04C /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400EE21F59A2E0002A04C /* DataPersistenceManager.swift */; };
 		D60400F121F59A9E0002A04C /* FavoriteImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400F021F59A9E0002A04C /* FavoriteImageModel.swift */; };
 		D60400F321F5A0360002A04C /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400F221F5A0360002A04C /* SecretKeys.swift */; };
+		D604010821F6E6860002A04C /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604010721F6E6860002A04C /* DateHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		D60400EE21F59A2E0002A04C /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		D60400F021F59A9E0002A04C /* FavoriteImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImageModel.swift; sourceTree = "<group>"; };
 		D60400F221F5A0360002A04C /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
+		D604010721F6E6860002A04C /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				D60400D921F44FF60002A04C /* Forecast.swift */,
 				D60400DB21F450B70002A04C /* Image.swift */,
 				D60400F021F59A9E0002A04C /* FavoriteImageModel.swift */,
+				D604010721F6E6860002A04C /* DateHelper.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				D60400DE21F450DF0002A04C /* WeatherDetailViewController.swift in Sources */,
 				D60400E221F4510C0002A04C /* ForecastCell.swift in Sources */,
 				D60400D021F3ECB60002A04C /* NetworkHelper.swift in Sources */,
+				D604010821F6E6860002A04C /* DateHelper.swift in Sources */,
 				D60400DC21F450B70002A04C /* Image.swift in Sources */,
 				D60400E421F452A30002A04C /* FavoriteImageCell.swift in Sources */,
 				D60400EA21F506250002A04C /* CacheImageView.swift in Sources */,

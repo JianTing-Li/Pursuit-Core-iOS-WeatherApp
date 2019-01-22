@@ -19,6 +19,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var zipCodeTextField: UITextField!
     
+    var locationName = ""
     var zipCode = "11229" {
         didSet {
             ZipCodeHelper.getLocationName(from: zipCode) { (error, locationName) in
@@ -26,6 +27,7 @@ class WeatherViewController: UIViewController {
                     print(error)
                 } else if let locationName = locationName {
                     DispatchQueue.main.async {
+                        self.locationName = locationName
                         self.locationLabel.text = "Weather Forecast for \(locationName)"
                     }
                 }
@@ -55,7 +57,6 @@ class WeatherViewController: UIViewController {
             } else if let forecasts = forecasts, let zipCode = zipCode {
                 self.zipCode = zipCode
                 self.forecasts = forecasts
-                //dump(self.forecasts)
             }
         }
     }
@@ -78,6 +79,14 @@ extension WeatherViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 250/1.5, height: 350/1.5)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+        guard let detailVC = mainStoryboard.instantiateViewController(withIdentifier: "WeatherDetailVC") as? WeatherDetailViewController else { fatalError("WeatherDetailVC is nil") }
+        detailVC.forecast = forecasts[indexPath.row]
+        detailVC.locationName = locationName
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension WeatherViewController: UITextFieldDelegate {
@@ -85,7 +94,10 @@ extension WeatherViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         guard let text = textField.text else { return false }
         getForecastsAndUpdateUI(zipCode: text)
-        textField.text = ""
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = ""
     }
 }

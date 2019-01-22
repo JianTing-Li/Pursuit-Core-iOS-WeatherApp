@@ -8,6 +8,8 @@
 
 import UIKit
 
+//TODO:
+    // 1) switch between Celcius & Fahrenheit
 class ForecastCell: UICollectionViewCell {
     @IBOutlet weak var forecastDate: UILabel!
     @IBOutlet weak var forecastImage: UIImageView!

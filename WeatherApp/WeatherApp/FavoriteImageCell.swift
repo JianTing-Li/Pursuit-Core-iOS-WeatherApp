@@ -9,5 +9,5 @@
 import UIKit
 
 class FavoriteImageCell: UITableViewCell {
-    @IBOutlet weak var favoriteImage: UIView!
+    @IBOutlet weak var favoriteImage: UIImageView!
 }

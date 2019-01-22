@@ -40,6 +40,8 @@ struct Forecast: Codable {
     let weather: String     // "Mostly Cloudy with Chance of Light Wintry Mix",
     let weatherPrimary: String    // "Scattered Wintry Mix"
     let icon: String              // "wintrymix.png"
+    let sunrise: Double
+    let sunsetISO: String
     
     public var date: String {
         var formattedDate = timestamp.description

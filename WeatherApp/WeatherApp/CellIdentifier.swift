@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// ask alex whether I should use this for cell identifier?
 enum CellIdentifier: String {
     case forecast = "ForecastCell"
     case favoriteImage = "FavoriteImageCell"
