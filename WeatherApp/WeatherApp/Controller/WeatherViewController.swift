@@ -12,6 +12,7 @@ class WeatherViewController: UIViewController {
 
     @IBOutlet weak var weatherCollectionView: UICollectionView!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var zipCodeTextField: UITextField!
     
     var zipCode = 11229 {
         didSet {
@@ -19,7 +20,9 @@ class WeatherViewController: UIViewController {
                 if let error = error {
                     print(error)
                 } else if let locationName = locationName {
-                    self.locationLabel.text = "Weather Forecast for \(locationName)"
+                    DispatchQueue.main.async {
+                        self.locationLabel.text = "Weather Forecast for \(locationName)"
+                    }
                 }
             }
         }

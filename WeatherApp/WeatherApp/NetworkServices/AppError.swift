@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//3 questions
+
 public enum AppError: Error {
     case badURL(String)
     case networkError(Error)

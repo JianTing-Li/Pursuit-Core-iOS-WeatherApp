@@ -127,6 +127,7 @@
                     <connections>
                         <outlet property="locationLabel" destination="0NI-cC-K2Q" id="WxW-gA-T7v"/>
                         <outlet property="weatherCollectionView" destination="1TM-vi-vx1" id="8sf-oe-JFI"/>
+                        <outlet property="zipCodeTextField" destination="OeD-V5-BHP" id="Aqq-r0-2bG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
