@@ -21,11 +21,14 @@ final public class NetworkHelper {
             return
         }
         let request = URLRequest(url:url)
+        // **why don't we check the status code here?
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completionHandler(AppError.networkError(error), nil, response as? HTTPURLResponse)
                 return
-            } else if let data = data {
+            }
+            
+            if let data = data {
                 completionHandler(nil, data, response as? HTTPURLResponse)
             }
         }

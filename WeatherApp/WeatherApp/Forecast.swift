@@ -6,7 +6,7 @@
 //  Copyright © 2019 Pursuit. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct GetForecastStatus: Codable {
     let success: Bool
@@ -30,7 +30,7 @@ struct ForecastData: Codable {
 }
 
 struct Forecast: Codable {
-    let timestamp: Int      // 1547899200
+    let timestamp: Double      // 1547899200
     let maxTempC: Int       // 4
     let maxTempF: Int       // 39
     let minTempC: Int       // 1
@@ -40,4 +40,26 @@ struct Forecast: Codable {
     let weather: String     // "Mostly Cloudy with Chance of Light Wintry Mix",
     let weatherPrimary: String    // "Scattered Wintry Mix"
     let icon: String              // "wintrymix.png"
+    
+    public var date: String {
+        var formattedDate = timestamp.description
+        //change the timestamp to date object
+        let date = Date(timeIntervalSince1970: timestamp)
+        
+        //initialized the DateFormatter
+        let dateFormatter = DateFormatter()
+        
+        // assign the texual date format I want
+        dateFormatter.dateFormat = "yyyy-MM-dd"   // 2019-01-19
+        
+        // this is where the date texual conversion takes place
+        formattedDate = dateFormatter.string(from: date)
+        
+        return formattedDate
+    }
+    
+    public var iconImage: UIImage {
+        let iconImageString = icon.components(separatedBy: ".")[0]
+        return UIImage(named: iconImageString) ?? UIImage(named: "placeholder")!
+    }
 }

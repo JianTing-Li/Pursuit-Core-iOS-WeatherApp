@@ -40,7 +40,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="212" height="271"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nLT-p1-vba">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nLT-p1-vba">
                                                     <rect key="frame" x="42.5" y="53.5" width="127" height="127.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="nLT-p1-vba" secondAttribute="height" multiplier="1:1" id="7Co-Zz-nj7"/>
@@ -125,6 +125,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="sm6-ub-ePL"/>
                     <connections>
+                        <outlet property="locationLabel" destination="0NI-cC-K2Q" id="WxW-gA-T7v"/>
                         <outlet property="weatherCollectionView" destination="1TM-vi-vx1" id="8sf-oe-JFI"/>
                     </connections>
                 </viewController>

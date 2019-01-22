@@ -13,4 +13,8 @@ class ForecastCell: UICollectionViewCell {
     @IBOutlet weak var forecastImage: UIImageView!
     @IBOutlet weak var highTemp: UILabel!
     @IBOutlet weak var lowTemp: UILabel!
+    
+    public func configureCell(forecast: Forecast) {
+        
+    }
 }
