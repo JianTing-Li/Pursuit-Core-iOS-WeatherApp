@@ -7,6 +7,11 @@
 //
 
 import UIKit
+// TO_DO:
+    // 1) User Defaults that save city / zipcode inputs
+    // 2a) search by location name too
+    // 2b) guard against bad inputs for zipcode & city
+
 
 class WeatherViewController: UIViewController {
 
@@ -14,9 +19,9 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var zipCodeTextField: UITextField!
     
-    var zipCode = 11229 {
+    var zipCode = "11229" {
         didSet {
-            ZipCodeHelper.getLocationName(from: zipCode.description) { (error, locationName) in
+            ZipCodeHelper.getLocationName(from: zipCode) { (error, locationName) in
                 if let error = error {
                     print(error)
                 } else if let locationName = locationName {
@@ -39,8 +44,12 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         weatherCollectionView.dataSource = self
         weatherCollectionView.delegate = self
-        
-        AerisWeatherAPIClient.get7DayForecastByZipCode(zipCode: 11229) { (appError, forecasts, zipCode) in
+        zipCodeTextField.delegate = self
+        getForecastsAndUpdateUI(zipCode: 11229.description)
+    }
+
+    private func getForecastsAndUpdateUI(zipCode: String) {
+        AerisWeatherAPIClient.get7DayForecastByZipCode(zipCode: zipCode) { (appError, forecasts, zipCode) in
             if let appError = appError {
                 print(appError.errorMessage())
             } else if let forecasts = forecasts, let zipCode = zipCode {
@@ -50,8 +59,6 @@ class WeatherViewController: UIViewController {
             }
         }
     }
-
-
 }
 
 extension WeatherViewController: UICollectionViewDataSource {
@@ -69,6 +76,16 @@ extension WeatherViewController: UICollectionViewDataSource {
 
 extension WeatherViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 250, height: 350)
+        return CGSize(width: 250/1.5, height: 350/1.5)
+    }
+}
+
+extension WeatherViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        guard let text = textField.text else { return false }
+        getForecastsAndUpdateUI(zipCode: text)
+        textField.text = ""
+        return true
     }
 }

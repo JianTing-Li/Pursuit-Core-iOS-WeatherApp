@@ -11,7 +11,7 @@ import Foundation
 final class AerisWeatherAPIClient {
     private init() {}
     
-    public static func get7DayForecastByZipCode(zipCode: Int, completionHandler: @escaping (AppError?, [Forecast]?, Int?) -> Void) {
+    public static func get7DayForecastByZipCode(zipCode: String, completionHandler: @escaping (AppError?, [Forecast]?, String?) -> Void) {
         let endpointURLString = "https://api.aerisapi.com/forecasts/\(zipCode)?client_id=\(SecretKeys.aerisClientID)&client_secret=\(SecretKeys.aerisSecretKey)"
         
         NetworkHelper.shared.performDataTask(endpointURLString: endpointURLString) { (appError, data, httpResponse) in
