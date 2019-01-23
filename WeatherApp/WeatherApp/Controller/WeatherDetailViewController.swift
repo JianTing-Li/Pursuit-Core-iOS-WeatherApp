@@ -8,7 +8,10 @@
 
 import UIKit
 
-// TODO: When the user tap save, an alert should show up
+// TODO:
+    // 1) When the user tap save, an alert should show up
+    // 2) make a String extension to set dates for sunrise & sunset
+    // 3) don't save images that's already been save (modify stuct of image model and compare URL)
 class WeatherDetailViewController: UIViewController {
     
     @IBOutlet weak var weatherTitleLabel: UILabel!
