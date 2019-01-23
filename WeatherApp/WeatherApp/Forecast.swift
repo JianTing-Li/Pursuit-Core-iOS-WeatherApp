@@ -15,6 +15,7 @@ struct GetForecastStatus: Codable {
         let code: String
         let description: String
     }
+    
     let error: ForecastError?
     let response: [ForecastData]    //only 1 element
 }

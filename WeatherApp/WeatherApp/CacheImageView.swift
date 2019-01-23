@@ -46,13 +46,17 @@ class CacheImageView: UIImageView {
     // ??? 2) what is the "throws" keyboard?
     public func setImage(withURLString urlString: String, placeholderImage: UIImage) throws {
         //set image to placeholder
-        image = placeholderImage
+        DispatchQueue.main.async {
+            self.image = placeholderImage
+        }
         //check if the image of the url is in the cache
         if let cacheImage = cache.object(forKey: urlString as NSString) {
             image = cacheImage
         } else { // if not make a network request
             imageViewURLString = urlString
-            activityIndicator.startAnimating()  //start animating activity indicator
+            DispatchQueue.main.async {
+                self.activityIndicator.startAnimating()  //start animating activity indicator
+            }
             
             guard let url = URL(string: urlString) else { throw AppError.badURL("bad image url: \(urlString)") }
             let request = URLRequest(url:url)
@@ -82,7 +86,7 @@ class CacheImageView: UIImageView {
                     }
                 }
                 DispatchQueue.main.async {
-                    self.activityIndicator.startAnimating()
+                    self.activityIndicator.stopAnimating()
                 }
             }
             task.resume()

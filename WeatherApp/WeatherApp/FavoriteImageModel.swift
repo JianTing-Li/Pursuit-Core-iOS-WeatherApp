@@ -9,5 +9,6 @@
 import UIKit
 
 final class FavoriteImageModel {
-    
+    private static let filename = "FavoriteList.plist"
+    private static var allFavoriteImages = [PixabayImage]()
 }

@@ -22,10 +22,17 @@ final public class NetworkHelper {
         }
         let request = URLRequest(url:url)
         // **why don't we check the status code here?
+        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completionHandler(AppError.networkError(error), nil, response as? HTTPURLResponse)
                 return
+            }
+            guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) else {
+                    let statusCode = (response as? HTTPURLResponse)?.statusCode ?? -999
+                    completionHandler(AppError.badStatusCode(String(statusCode)), nil, nil)
+                    return
             }
             
             if let data = data {

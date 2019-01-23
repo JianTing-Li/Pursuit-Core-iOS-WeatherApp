@@ -19,15 +19,17 @@ final class AerisWeatherAPIClient {
                 completionHandler(appError, nil, nil)
                 return
             }
-            guard let response = httpResponse, (200...299).contains(response.statusCode) else {
-                let statusCode = httpResponse?.statusCode ?? -999
-                completionHandler(AppError.badStatusCode(statusCode.description), nil, nil)
-                return
-            }
+//            guard let response = httpResponse, (200...299).contains(response.statusCode) else {
+//                let statusCode = httpResponse?.statusCode ?? -999
+//                completionHandler(AppError.badStatusCode(statusCode.description), nil, nil)
+//                return
+//            }
             if let data = data {
                 do {
                     let getForecastStatus = try JSONDecoder().decode(GetForecastStatus.self, from: data)
+                    
                     guard getForecastStatus.success else {
+                        //refactored this (check zipcode before sending to network)
                         if let error = getForecastStatus.error {
                             completionHandler(AppError.failToGetForecast(error.code, error.description), nil, nil)
                             return
@@ -35,6 +37,7 @@ final class AerisWeatherAPIClient {
                         completionHandler(AppError.failToGetForecast("Error:", "decode Success, but receive no data"), nil, nil)
                         return
                     }
+                    
                     let forecasts = getForecastStatus.response[0].periods
                     completionHandler(nil, forecasts, zipCode)
                 } catch {

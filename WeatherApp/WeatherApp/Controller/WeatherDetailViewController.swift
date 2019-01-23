@@ -23,13 +23,25 @@ class WeatherDetailViewController: UIViewController {
     
     var forecast: Forecast!
     var locationName = "Unknown"
+
+    var locationImages = [PixabayImage]()
+    var getImagesAPICallTask = false {
+        didSet {
+            if getImagesAPICallTask == true {
+                setLocationImageUI(locationImages: locationImages)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        getPictures()
+        setRightBarButtonToFavoriteImage()
     }
     
     private func updateUI() {
+        title = "Forecast"
         weatherTitleLabel.text = "Weather Forecast for \(locationName) on \(forecast.date)"
         weatherDescriptionLabel.text = forecast.weatherPrimary
         highTempLabel.text = "High: \(forecast.maxTempF)°F"
@@ -38,5 +50,36 @@ class WeatherDetailViewController: UIViewController {
         sunsetTmeLabel.text = "Sunset: \(forecast.sunsetISO)"
         windspeedLabel.text = "Windspeed: \(forecast.windSpeedMPH) MPH"
         precipitationLabel.text = "Inches of Precipitation: \(forecast.precipIN)"
+    }
+    
+    private func getPictures() {
+        PixabayAPIClient.getImagesByLocationName(locationName: locationName) { (appError, images) in
+            if let appError = appError {
+                print(appError.errorMessage())
+            } else if let images = images {
+                self.locationImages = images
+                self.getImagesAPICallTask = true
+            }
+        }
+    }
+    
+    private func setLocationImageUI(locationImages: [PixabayImage]) {
+        let randomImageStr = locationImages.randomElement()?.largeImageURL.absoluteString ?? ""
+        do {
+            try locationImage.setImage(withURLString: randomImageStr,
+                                       placeholderImage: UIImage(named: "placeholder")!)
+        } catch {
+            print(AppError.setImageError(error).errorMessage())
+        }
+    }
+    
+    // http://swiftdeveloperblog.com/code-examples/create-uibarbuttonitem-programmatically/
+    private func setRightBarButtonToFavoriteImage() {
+        let rightBarButton = UIBarButtonItem(title: "Save", style: UIBarButtonItem.Style.plain, target: self, action: #selector(WeatherDetailViewController.myRightSideBarButtonItemTapped(_:)))
+        self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    @objc private func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!) {
+        print("myRightSideBarButtonItemTapped")
     }
 }

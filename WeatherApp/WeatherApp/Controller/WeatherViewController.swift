@@ -47,6 +47,7 @@ class WeatherViewController: UIViewController {
         weatherCollectionView.dataSource = self
         weatherCollectionView.delegate = self
         zipCodeTextField.delegate = self
+        title = "Search"
         getForecastsAndUpdateUI(zipCode: 11229.description)
     }
 

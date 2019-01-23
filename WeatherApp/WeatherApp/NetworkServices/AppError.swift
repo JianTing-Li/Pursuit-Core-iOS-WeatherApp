@@ -17,6 +17,7 @@ public enum AppError: Error {
     case badMimeType(String)
     case failToGetForecast(String, String)
     case invalidZipCode(String, Error)
+    case setImageError(Error)
     
     public func errorMessage() -> String {
         switch self {
@@ -37,6 +38,8 @@ public enum AppError: Error {
             return "\(errorCode): \(description)"
         case .invalidZipCode(let zipCode, let error):
             return "Invalid ZipCode \(zipCode): \(error)"
+        case .setImageError(let error):
+            return "SetImage Error: \(error)"
         }
     }
 }

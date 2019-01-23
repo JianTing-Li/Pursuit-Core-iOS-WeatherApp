@@ -18,7 +18,7 @@
 		D60400D221F3ECC40002A04C /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400D121F3ECC40002A04C /* ImageHelper.swift */; };
 		D60400D421F3ECD20002A04C /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400D321F3ECD20002A04C /* AppError.swift */; };
 		D60400DA21F44FF60002A04C /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400D921F44FF60002A04C /* Forecast.swift */; };
-		D60400DC21F450B70002A04C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400DB21F450B70002A04C /* Image.swift */; };
+		D60400DC21F450B70002A04C /* PixabayImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400DB21F450B70002A04C /* PixabayImage.swift */; };
 		D60400DE21F450DF0002A04C /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400DD21F450DF0002A04C /* WeatherDetailViewController.swift */; };
 		D60400E021F450F90002A04C /* FavoriteImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400DF21F450F90002A04C /* FavoriteImageViewController.swift */; };
 		D60400E221F4510C0002A04C /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400E121F4510C0002A04C /* ForecastCell.swift */; };
@@ -31,6 +31,7 @@
 		D60400F121F59A9E0002A04C /* FavoriteImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400F021F59A9E0002A04C /* FavoriteImageModel.swift */; };
 		D60400F321F5A0360002A04C /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400F221F5A0360002A04C /* SecretKeys.swift */; };
 		D604010821F6E6860002A04C /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604010721F6E6860002A04C /* DateHelper.swift */; };
+		D604011E21F7C42B0002A04C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604011D21F7C42B0002A04C /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +60,7 @@
 		D60400D121F3ECC40002A04C /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		D60400D321F3ECD20002A04C /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		D60400D921F44FF60002A04C /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
-		D60400DB21F450B70002A04C /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		D60400DB21F450B70002A04C /* PixabayImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayImage.swift; sourceTree = "<group>"; };
 		D60400DD21F450DF0002A04C /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
 		D60400DF21F450F90002A04C /* FavoriteImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImageViewController.swift; sourceTree = "<group>"; };
 		D60400E121F4510C0002A04C /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
@@ -72,6 +73,7 @@
 		D60400F021F59A9E0002A04C /* FavoriteImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImageModel.swift; sourceTree = "<group>"; };
 		D60400F221F5A0360002A04C /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		D604010721F6E6860002A04C /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		D604011D21F7C42B0002A04C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				57EE009121F15D7100D76A6E /* Main.storyboard */,
+				D604011C21F7C3ED0002A04C /* Type+Extensions */,
 				D60400ED21F59A0B0002A04C /* File Managing Service */,
 				D60400D521F3ECE20002A04C /* NetworkServices */,
 				D60400D821F4492E0002A04C /* Model */,
@@ -183,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				D60400D921F44FF60002A04C /* Forecast.swift */,
-				D60400DB21F450B70002A04C /* Image.swift */,
+				D60400DB21F450B70002A04C /* PixabayImage.swift */,
 				D60400F021F59A9E0002A04C /* FavoriteImageModel.swift */,
 				D604010721F6E6860002A04C /* DateHelper.swift */,
 			);
@@ -196,6 +199,14 @@
 				D60400EE21F59A2E0002A04C /* DataPersistenceManager.swift */,
 			);
 			name = "File Managing Service";
+			sourceTree = "<group>";
+		};
+		D604011C21F7C3ED0002A04C /* Type+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D604011D21F7C42B0002A04C /* String+Extensions.swift */,
+			);
+			name = "Type+Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,12 +311,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D60400E021F450F90002A04C /* FavoriteImageViewController.swift in Sources */,
+				D604011E21F7C42B0002A04C /* String+Extensions.swift in Sources */,
 				D60400F121F59A9E0002A04C /* FavoriteImageModel.swift in Sources */,
 				D60400DE21F450DF0002A04C /* WeatherDetailViewController.swift in Sources */,
 				D60400E221F4510C0002A04C /* ForecastCell.swift in Sources */,
 				D60400D021F3ECB60002A04C /* NetworkHelper.swift in Sources */,
 				D604010821F6E6860002A04C /* DateHelper.swift in Sources */,
-				D60400DC21F450B70002A04C /* Image.swift in Sources */,
+				D60400DC21F450B70002A04C /* PixabayImage.swift in Sources */,
 				D60400E421F452A30002A04C /* FavoriteImageCell.swift in Sources */,
 				D60400EA21F506250002A04C /* CacheImageView.swift in Sources */,
 				D60400D221F3ECC40002A04C /* ImageHelper.swift in Sources */,

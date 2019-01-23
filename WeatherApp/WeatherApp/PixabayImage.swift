@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Image: Codable {
-    struct ImageData: Codable {
-        let hits: [Image]
+struct PixabayImage: Codable {
+    struct PixabayImageData: Codable {
+        let hits: [PixabayImage]
     }
     let largeImageURL: URL
     let webformatHeight: Int
