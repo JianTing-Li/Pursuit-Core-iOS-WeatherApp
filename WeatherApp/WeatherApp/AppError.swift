@@ -12,12 +12,16 @@ public enum AppError: Error {
     case badURL(String)
     case networkError(Error)
     case decodingError(Error)
-    case encodingError(Error)
     case badStatusCode(String)
     case badMimeType(String)
     case failToGetForecast(String, String)
     case invalidZipCode(String, Error)
     case setImageError(Error)
+    case invalidePath(String)
+    case propertyListDecodingError(Error)
+    case propertyListdataEncodingError(Error)
+    case noData
+    case failToSaveImage
     
     public func errorMessage() -> String {
         switch self {
@@ -28,8 +32,6 @@ public enum AppError: Error {
             return error.localizedDescription
         case .decodingError(let error):
             return "decoding error: \(error)"
-        case .encodingError(let error):
-            return "property list encoding error: \(error)"
         case .badStatusCode(let message):
             return "bad status code: \(message)"
         case .badMimeType(let mimeType):            //what is the .badMimetype error?
@@ -40,6 +42,16 @@ public enum AppError: Error {
             return "Invalid ZipCode \(zipCode): \(error)"
         case .setImageError(let error):
             return "SetImage Error: \(error)"
+        case .propertyListDecodingError(let error):
+            return "Property List Encoding Error: \(error)"
+        case .propertyListdataEncodingError(let error):
+            return "Property List Encoding Error: \(error)"
+        case .invalidePath(let fileName):
+            return "\(fileName) doesn't exist"
+        case .noData:
+            return "data is nil"
+        case .failToSaveImage:
+            return "Failed To Save: Image is nil"
         }
     }
 }

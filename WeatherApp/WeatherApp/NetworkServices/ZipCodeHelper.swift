@@ -12,6 +12,8 @@
 import Foundation
 import CoreLocation
 
+// ***1 Question: ask alex to explain this piece of code
+
 class ZipCodeHelper {
     private init() {}
     

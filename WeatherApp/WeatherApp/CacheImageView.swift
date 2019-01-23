@@ -7,7 +7,7 @@
 //
 
 import UIKit
-// 2 questions
+// ***2 questions
 //TODO: refactor set image using networkHelper
 
 class CacheImageView: UIImageView {

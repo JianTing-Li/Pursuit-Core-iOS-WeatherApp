@@ -8,9 +8,10 @@
 
 import UIKit
 // TO_DO:
-    // 1) User Defaults that save city / zipcode inputs
-    // 2a) search by location name too
-    // 2b) guard against bad inputs for zipcode & city
+    // 1*) User Defaults that save city / zipcode inputs
+    // 2a) search by location name too (bonus)
+    // 2b*) guard against bad inputs for zipcode & city (make sure the zipcode is good before making the api call)
+    // 2c*) alert user if zipcode / city is invalid
 
 
 class WeatherViewController: UIViewController {

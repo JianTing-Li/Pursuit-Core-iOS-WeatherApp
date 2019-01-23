@@ -30,7 +30,6 @@
 		D60400EF21F59A2E0002A04C /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400EE21F59A2E0002A04C /* DataPersistenceManager.swift */; };
 		D60400F121F59A9E0002A04C /* FavoriteImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400F021F59A9E0002A04C /* FavoriteImageModel.swift */; };
 		D60400F321F5A0360002A04C /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400F221F5A0360002A04C /* SecretKeys.swift */; };
-		D604010821F6E6860002A04C /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604010721F6E6860002A04C /* DateHelper.swift */; };
 		D604011E21F7C42B0002A04C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604011D21F7C42B0002A04C /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,7 +71,6 @@
 		D60400EE21F59A2E0002A04C /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		D60400F021F59A9E0002A04C /* FavoriteImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImageModel.swift; sourceTree = "<group>"; };
 		D60400F221F5A0360002A04C /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
-		D604010721F6E6860002A04C /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		D604011D21F7C42B0002A04C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				57EE009121F15D7100D76A6E /* Main.storyboard */,
+				D60400D321F3ECD20002A04C /* AppError.swift */,
 				D604011C21F7C3ED0002A04C /* Type+Extensions */,
 				D60400ED21F59A0B0002A04C /* File Managing Service */,
 				D60400D521F3ECE20002A04C /* NetworkServices */,
@@ -156,7 +155,6 @@
 				D60400EB21F506900002A04C /* PixabayAPIClient.swift */,
 				57EE009F21F15E0F00D76A6E /* ZipCodeHelper.swift */,
 				D60400F221F5A0360002A04C /* SecretKeys.swift */,
-				D60400D321F3ECD20002A04C /* AppError.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -188,7 +186,6 @@
 				D60400D921F44FF60002A04C /* Forecast.swift */,
 				D60400DB21F450B70002A04C /* PixabayImage.swift */,
 				D60400F021F59A9E0002A04C /* FavoriteImageModel.swift */,
-				D604010721F6E6860002A04C /* DateHelper.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -316,7 +313,6 @@
 				D60400DE21F450DF0002A04C /* WeatherDetailViewController.swift in Sources */,
 				D60400E221F4510C0002A04C /* ForecastCell.swift in Sources */,
 				D60400D021F3ECB60002A04C /* NetworkHelper.swift in Sources */,
-				D604010821F6E6860002A04C /* DateHelper.swift in Sources */,
 				D60400DC21F450B70002A04C /* PixabayImage.swift in Sources */,
 				D60400E421F452A30002A04C /* FavoriteImageCell.swift in Sources */,
 				D60400EA21F506250002A04C /* CacheImageView.swift in Sources */,

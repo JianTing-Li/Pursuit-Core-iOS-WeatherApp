@@ -7,7 +7,7 @@
 //
 
 import Foundation
-// ask alex whether I should use this for cell identifier?
+// ***1 Question: ask alex whether I should use an enum for cell identifiers?
 enum CellIdentifier: String {
     case forecast = "ForecastCell"
     case favoriteImage = "FavoriteImageCell"

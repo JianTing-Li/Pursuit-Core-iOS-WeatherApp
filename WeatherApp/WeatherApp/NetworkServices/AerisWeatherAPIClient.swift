@@ -8,6 +8,7 @@
 
 import Foundation
 
+//TODO: need refactoring (make sure to check zipcode is good before running thie api call)
 final class AerisWeatherAPIClient {
     private init() {}
     

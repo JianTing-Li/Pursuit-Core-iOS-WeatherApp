@@ -21,7 +21,6 @@ final public class NetworkHelper {
             return
         }
         let request = URLRequest(url:url)
-        // **why don't we check the status code here?
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {

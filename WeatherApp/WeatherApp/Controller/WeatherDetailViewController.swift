@@ -8,7 +8,7 @@
 
 import UIKit
 
-// TODO: need to convert date
+// TODO: When the user tap save, an alert should show up
 class WeatherDetailViewController: UIViewController {
     
     @IBOutlet weak var weatherTitleLabel: UILabel!
@@ -81,5 +81,12 @@ class WeatherDetailViewController: UIViewController {
     
     @objc private func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!) {
         print("myRightSideBarButtonItemTapped")
+        guard let imageData = locationImage.image?.jpegData(compressionQuality: 0.5) else {
+            print(AppError.failToSaveImage.errorMessage())
+            return
+        }
+        let favoriteImage = FavoriteImage.init(imageData: imageData)
+        FavoriteImageModel.addFavoriteImage(image: favoriteImage)
+        print("Image Favorited")
     }
 }
