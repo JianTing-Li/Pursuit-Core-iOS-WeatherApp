@@ -93,6 +93,6 @@ class WeatherDetailViewController: UIViewController {
         let favoriteImage = FavoriteImage.init(imageData: imageData)
         FavoriteImageModel.addFavoriteImage(image: favoriteImage)
         Alert.showImageSaved(on: self)
-        print("Image Favorited Cool!")
+        print("Image Favorited Cool!!")
     }
 }
