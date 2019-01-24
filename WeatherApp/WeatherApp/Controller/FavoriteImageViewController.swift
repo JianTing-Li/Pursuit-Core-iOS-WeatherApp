@@ -9,6 +9,7 @@
 import UIKit
 
 // TODO: when an image is click
+// Bug: Favorite photos resets is gone when I search for another city and save image there
 
 class FavoriteImageViewController: UIViewController {
 

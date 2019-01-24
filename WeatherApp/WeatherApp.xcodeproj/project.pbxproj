@@ -31,6 +31,9 @@
 		D60400F121F59A9E0002A04C /* FavoriteImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400F021F59A9E0002A04C /* FavoriteImageModel.swift */; };
 		D60400F321F5A0360002A04C /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60400F221F5A0360002A04C /* SecretKeys.swift */; };
 		D604011E21F7C42B0002A04C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604011D21F7C42B0002A04C /* String+Extensions.swift */; };
+		D604014721F91E850002A04C /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604014621F91E850002A04C /* UserDefaultsKeys.swift */; };
+		D604014A21F91EF70002A04C /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604014921F91EF70002A04C /* UserDefaultsHelper.swift */; };
+		D604014E21F98E280002A04C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604014D21F98E280002A04C /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		D60400F021F59A9E0002A04C /* FavoriteImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImageModel.swift; sourceTree = "<group>"; };
 		D60400F221F5A0360002A04C /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		D604011D21F7C42B0002A04C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		D604014621F91E850002A04C /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		D604014921F91EF70002A04C /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		D604014D21F98E280002A04C /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +122,7 @@
 				57EE009121F15D7100D76A6E /* Main.storyboard */,
 				D60400D321F3ECD20002A04C /* AppError.swift */,
 				D604011C21F7C3ED0002A04C /* Type+Extensions */,
+				D604014821F91EBC0002A04C /* User Defaults Services */,
 				D60400ED21F59A0B0002A04C /* File Managing Service */,
 				D60400D521F3ECE20002A04C /* NetworkServices */,
 				D60400D821F4492E0002A04C /* Model */,
@@ -176,6 +183,7 @@
 				D60400E321F452A30002A04C /* FavoriteImageCell.swift */,
 				D60400E521F4FD010002A04C /* CellIdentifier.swift */,
 				D60400E921F506250002A04C /* CacheImageView.swift */,
+				D604014D21F98E280002A04C /* Alert.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -204,6 +212,15 @@
 				D604011D21F7C42B0002A04C /* String+Extensions.swift */,
 			);
 			name = "Type+Extensions";
+			sourceTree = "<group>";
+		};
+		D604014821F91EBC0002A04C /* User Defaults Services */ = {
+			isa = PBXGroup;
+			children = (
+				D604014621F91E850002A04C /* UserDefaultsKeys.swift */,
+				D604014921F91EF70002A04C /* UserDefaultsHelper.swift */,
+			);
+			path = "User Defaults Services";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,7 +325,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D60400E021F450F90002A04C /* FavoriteImageViewController.swift in Sources */,
+				D604014721F91E850002A04C /* UserDefaultsKeys.swift in Sources */,
 				D604011E21F7C42B0002A04C /* String+Extensions.swift in Sources */,
+				D604014E21F98E280002A04C /* Alert.swift in Sources */,
 				D60400F121F59A9E0002A04C /* FavoriteImageModel.swift in Sources */,
 				D60400DE21F450DF0002A04C /* WeatherDetailViewController.swift in Sources */,
 				D60400E221F4510C0002A04C /* ForecastCell.swift in Sources */,
@@ -324,6 +343,7 @@
 				D60400DA21F44FF60002A04C /* Forecast.swift in Sources */,
 				D60400D421F3ECD20002A04C /* AppError.swift in Sources */,
 				57EE00A021F15E0F00D76A6E /* ZipCodeHelper.swift in Sources */,
+				D604014A21F91EF70002A04C /* UserDefaultsHelper.swift in Sources */,
 				57EE009021F15D7000D76A6E /* WeatherViewController.swift in Sources */,
 				D60400F321F5A0360002A04C /* SecretKeys.swift in Sources */,
 				57EE008E21F15D7000D76A6E /* AppDelegate.swift in Sources */,

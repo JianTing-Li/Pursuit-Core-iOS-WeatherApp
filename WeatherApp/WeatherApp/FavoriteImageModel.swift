@@ -49,8 +49,8 @@ final class FavoriteImageModel {
         saveFavoriteImagesToLocalMemory()
     }
     
-    public static func deleteFavoriteImage(image: FavoriteImage, at index: Int) {
-        favoriteImages.remove(at: index)
-        saveFavoriteImagesToLocalMemory()
-    }
+//    public static func deleteFavoriteImage(image: FavoriteImage, at index: Int) {
+//        favoriteImages.remove(at: index)
+//        saveFavoriteImagesToLocalMemory()
+//    }
 }

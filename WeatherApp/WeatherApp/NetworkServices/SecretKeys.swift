@@ -10,5 +10,6 @@ import Foundation
 
 // ***1 question: how do I exclude this file at gitIgnore
 struct SecretKeys {
+
 }
 

@@ -8,16 +8,16 @@
 
 import Foundation
 
-//TODO: need refactoring (make sure to check zipcode is good before running thie api call)
+//TODO: need refactoring (make sure to check zipcode is good before running thie api call) ✔️
 final class AerisWeatherAPIClient {
     private init() {}
     
-    public static func get7DayForecastByZipCode(zipCode: String, completionHandler: @escaping (AppError?, [Forecast]?, String?) -> Void) {
+    public static func get7DayForecastByZipCode(zipCode: String, completionHandler: @escaping (AppError?, [Forecast]?) -> Void) {
         let endpointURLString = "https://api.aerisapi.com/forecasts/\(zipCode)?client_id=\(SecretKeys.aerisClientID)&client_secret=\(SecretKeys.aerisSecretKey)"
         
         NetworkHelper.shared.performDataTask(endpointURLString: endpointURLString) { (appError, data, httpResponse) in
             if let appError = appError {
-                completionHandler(appError, nil, nil)
+                completionHandler(appError, nil)
                 return
             }
 //            guard let response = httpResponse, (200...299).contains(response.statusCode) else {
@@ -28,21 +28,10 @@ final class AerisWeatherAPIClient {
             if let data = data {
                 do {
                     let getForecastStatus = try JSONDecoder().decode(GetForecastStatus.self, from: data)
-                    
-                    guard getForecastStatus.success else {
-                        //refactored this (check zipcode before sending to network)
-                        if let error = getForecastStatus.error {
-                            completionHandler(AppError.failToGetForecast(error.code, error.description), nil, nil)
-                            return
-                        }
-                        completionHandler(AppError.failToGetForecast("Error:", "decode Success, but receive no data"), nil, nil)
-                        return
-                    }
-                    
                     let forecasts = getForecastStatus.response[0].periods
-                    completionHandler(nil, forecasts, zipCode)
+                    completionHandler(nil, forecasts)
                 } catch {
-                    completionHandler(AppError.decodingError(error), nil, nil)
+                    completionHandler(AppError.decodingError(error), nil)
                 }
             }
         }

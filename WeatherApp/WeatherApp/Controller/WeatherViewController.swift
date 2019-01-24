@@ -23,18 +23,16 @@ class WeatherViewController: UIViewController {
     var locationName = ""
     var zipCode = "11229" {
         didSet {
-            ZipCodeHelper.getLocationName(from: zipCode) { (error, locationName) in
-                if let error = error {
-                    print(error)
-                } else if let locationName = locationName {
-                    DispatchQueue.main.async {
-                        self.locationName = locationName
-                        self.locationLabel.text = "Weather Forecast for \(locationName)"
-                    }
+            AerisWeatherAPIClient.get7DayForecastByZipCode(zipCode: self.zipCode) { (appError, forecasts) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if let forecasts = forecasts {
+                    self.forecasts = forecasts
                 }
             }
         }
     }
+    
     var forecasts = [Forecast]() {
         didSet {
             DispatchQueue.main.async {
@@ -49,16 +47,25 @@ class WeatherViewController: UIViewController {
         weatherCollectionView.delegate = self
         zipCodeTextField.delegate = self
         title = "Search"
-        getForecastsAndUpdateUI(zipCode: 11229.description)
+        if let savedZipCode = UserDefaults.standard.object(forKey: UserDefaultKeys.zipCode) as? String {
+            getForecastsAndUpdateUI(zipCode: savedZipCode)
+        } else {
+            getForecastsAndUpdateUI(zipCode: 11229.description)
+        }
     }
 
     private func getForecastsAndUpdateUI(zipCode: String) {
-        AerisWeatherAPIClient.get7DayForecastByZipCode(zipCode: zipCode) { (appError, forecasts, zipCode) in
-            if let appError = appError {
-                print(appError.errorMessage())
-            } else if let forecasts = forecasts, let zipCode = zipCode {
-                self.zipCode = zipCode
-                self.forecasts = forecasts
+        ZipCodeHelper.getLocationName(from: zipCode) { (error, locationName) in
+            if let error = error {
+                print(AppError.invalidZipCode(zipCode, error).errorMessage())
+                //set alert here
+            } else if let locationName = locationName {
+                DispatchQueue.main.async {
+                    self.locationName = locationName
+                    self.locationLabel.text = "Weather Forecast for \(locationName)"
+                    self.zipCode = zipCode
+                    UserDefaults.standard.set(zipCode, forKey: UserDefaultKeys.zipCode)
+                }
             }
         }
     }
