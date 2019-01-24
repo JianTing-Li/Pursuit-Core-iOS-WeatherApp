@@ -9,5 +9,15 @@
 import Foundation
 
 extension String {
-    
+    var formattedTime: String {
+        let isoDateFormatter = ISO8601DateFormatter()
+        var formattedDate = self
+        if let date = isoDateFormatter.date(from: self) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "h:mm a"
+            formattedDate = dateFormatter.string(from: date)
+        }
+        return formattedDate
+    }
 }
+

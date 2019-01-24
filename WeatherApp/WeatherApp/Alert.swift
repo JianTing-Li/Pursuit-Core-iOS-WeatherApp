@@ -9,13 +9,21 @@
 import UIKit
 
 struct Alert {
-    private func showBasicAlert(on vc: UIViewController, title: String, message: String) {
+    private static func showBasicAlert(on vc: UIViewController, title: String, message: String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         vc.present(alert, animated: true)
     }
     
-    public func showInvalidZipCode(on vc: UIViewController) {
+    public static func showInvalidZipCode(on vc: UIViewController) {
         showBasicAlert(on: vc, title: "Invalid Zipcode", message: "Please try again 🙂")
+    } 
+    
+    public static func showImageSaved(on vc: UIViewController) {
+        showBasicAlert(on: vc, title: "Image Saved", message: nil)
+    }
+    
+    public static func showImageAlreadySaved(on vc: UIViewController) {
+        showBasicAlert(on: vc, title: "Image Already Saved", message: nil)
     }
 }

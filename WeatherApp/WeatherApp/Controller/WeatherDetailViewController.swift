@@ -9,9 +9,8 @@
 import UIKit
 
 // TODO:
-    // 1) When the user tap save, an alert should show up
-    // 2) make a String extension to set dates for sunrise & sunset
-    // 3) don't save images that's already been save (modify stuct of image model and compare URL)
+    // 1) don't save images that's already been save (modify stuct of image model and compare URL)
+    // 2) before we get image the imageURLString is set
 class WeatherDetailViewController: UIViewController {
     
     @IBOutlet weak var weatherTitleLabel: UILabel!
@@ -26,6 +25,7 @@ class WeatherDetailViewController: UIViewController {
     
     var forecast: Forecast!
     var locationName = "Unknown"
+    //var imageURLString = ""
 
     var locationImages = [PixabayImage]()
     var getImagesAPICallTask = false {
@@ -45,12 +45,12 @@ class WeatherDetailViewController: UIViewController {
     
     private func updateUI() {
         title = "Forecast"
-        weatherTitleLabel.text = "Weather Forecast for \(locationName) on \(forecast.date)"
+        weatherTitleLabel.text = "Weather Forecast for \(locationName) on \(forecast.timestamp.formattedDate)"
         weatherDescriptionLabel.text = forecast.weatherPrimary
         highTempLabel.text = "High: \(forecast.maxTempF)°F"
         lowTempLabel.text = "Low: \(forecast.minTempF)°F"
-        sunriseTimeLabel.text = "Sunrise: \(forecast.sunrise)"
-        sunsetTmeLabel.text = "Sunset: \(forecast.sunsetISO)"
+        sunriseTimeLabel.text = "Sunrise: \(forecast.sunrise.formattedTime)"
+        sunsetTmeLabel.text = "Sunset: \(forecast.sunsetISO.formattedTime)"
         windspeedLabel.text = "Windspeed: \(forecast.windSpeedMPH) MPH"
         precipitationLabel.text = "Inches of Precipitation: \(forecast.precipIN)"
     }
@@ -67,9 +67,11 @@ class WeatherDetailViewController: UIViewController {
     }
     
     private func setLocationImageUI(locationImages: [PixabayImage]) {
-        let randomImageStr = locationImages.randomElement()?.largeImageURL.absoluteString ?? ""
+        let randomImage = locationImages.randomElement()
+        let randomImageURLStr = randomImage!.largeImageURL.absoluteString
+
         do {
-            try locationImage.setImage(withURLString: randomImageStr,
+            try locationImage.setImage(withURLString: randomImageURLStr,
                                        placeholderImage: UIImage(named: "placeholder")!)
         } catch {
             print(AppError.setImageError(error).errorMessage())
@@ -90,6 +92,7 @@ class WeatherDetailViewController: UIViewController {
         }
         let favoriteImage = FavoriteImage.init(imageData: imageData)
         FavoriteImageModel.addFavoriteImage(image: favoriteImage)
-        print("Image Favorited")
+        Alert.showImageSaved(on: self)
+        print("Image Favorited Cool!")
     }
 }

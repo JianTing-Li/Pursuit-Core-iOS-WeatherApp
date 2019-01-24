@@ -34,6 +34,7 @@
 		D604014721F91E850002A04C /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604014621F91E850002A04C /* UserDefaultsKeys.swift */; };
 		D604014A21F91EF70002A04C /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604014921F91EF70002A04C /* UserDefaultsHelper.swift */; };
 		D604014E21F98E280002A04C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604014D21F98E280002A04C /* Alert.swift */; };
+		D604015021F9962A0002A04C /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604014F21F9962A0002A04C /* Double+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		D604014621F91E850002A04C /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		D604014921F91EF70002A04C /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		D604014D21F98E280002A04C /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		D604014F21F9962A0002A04C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			children = (
 				57EE009121F15D7100D76A6E /* Main.storyboard */,
 				D60400D321F3ECD20002A04C /* AppError.swift */,
+				D604014D21F98E280002A04C /* Alert.swift */,
 				D604011C21F7C3ED0002A04C /* Type+Extensions */,
 				D604014821F91EBC0002A04C /* User Defaults Services */,
 				D60400ED21F59A0B0002A04C /* File Managing Service */,
@@ -183,7 +186,6 @@
 				D60400E321F452A30002A04C /* FavoriteImageCell.swift */,
 				D60400E521F4FD010002A04C /* CellIdentifier.swift */,
 				D60400E921F506250002A04C /* CacheImageView.swift */,
-				D604014D21F98E280002A04C /* Alert.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				D604011D21F7C42B0002A04C /* String+Extensions.swift */,
+				D604014F21F9962A0002A04C /* Double+Extensions.swift */,
 			);
 			name = "Type+Extensions";
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D604015021F9962A0002A04C /* Double+Extensions.swift in Sources */,
 				D60400E021F450F90002A04C /* FavoriteImageViewController.swift in Sources */,
 				D604014721F91E850002A04C /* UserDefaultsKeys.swift in Sources */,
 				D604011E21F7C42B0002A04C /* String+Extensions.swift in Sources */,

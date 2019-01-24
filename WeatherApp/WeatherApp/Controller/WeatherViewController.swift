@@ -55,10 +55,14 @@ class WeatherViewController: UIViewController {
     }
 
     private func getForecastsAndUpdateUI(zipCode: String) {
+        guard zipCode.count == 5 else {
+            Alert.showInvalidZipCode(on: self)
+            return
+        }
         ZipCodeHelper.getLocationName(from: zipCode) { (error, locationName) in
             if let error = error {
                 print(AppError.invalidZipCode(zipCode, error).errorMessage())
-                //set alert here
+                Alert.showInvalidZipCode(on: self)
             } else if let locationName = locationName {
                 DispatchQueue.main.async {
                     self.locationName = locationName

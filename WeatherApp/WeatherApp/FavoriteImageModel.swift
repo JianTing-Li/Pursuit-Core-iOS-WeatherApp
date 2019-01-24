@@ -36,6 +36,7 @@ final class FavoriteImageModel {
     
     public static func saveFavoriteImagesToLocalMemory() {
         let path = DataPersistenceManager.filepathToDocumentsDirectory(filename: filename)
+        print(path)
         do {
             let data = try PropertyListEncoder().encode(favoriteImages)
             try data.write(to: path, options: .atomic)
@@ -49,8 +50,8 @@ final class FavoriteImageModel {
         saveFavoriteImagesToLocalMemory()
     }
     
-//    public static func deleteFavoriteImage(image: FavoriteImage, at index: Int) {
-//        favoriteImages.remove(at: index)
-//        saveFavoriteImagesToLocalMemory()
-//    }
+    public static func deleteFavoriteImage(image: FavoriteImage, at index: Int) {
+        favoriteImages.remove(at: index)
+        saveFavoriteImagesToLocalMemory()
+    }
 }
